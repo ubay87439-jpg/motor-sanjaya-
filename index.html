@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ubay motor sanjaya - Premium & High Performance Motorcycle Dealer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Inter & Rajdhani for Sporty Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#FF0035',
+                            darkred: '#CC002A',
+                            dark: '#0B0F19',
+                            card: '#151C2C',
+                            border: '#2A3447',
+                            accent: '#00F0FF'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        racing: ['Rajdhani', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .racing-gradient {
+            background: linear-gradient(135deg, rgba(255,0,53,0.15) 0%, rgba(0,0,0,0.85) 100%);
+        }
+        .glow-red {
+            box-shadow: 0 0 20px rgba(255, 0, 53, 0.35);
+        }
+        .glow-red-hover:hover {
+            box-shadow: 0 0 25px rgba(255, 0, 53, 0.6);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FF0035;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-slate-100 font-sans min-h-screen flex flex-col justify-between antialiased">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-brand-red via-brand-darkred to-black text-white text-xs py-2 text-center font-bold tracking-wider uppercase px-4 border-b border-brand-red/30">
+        <i class="fa-solid fa-flag-checkered mr-2 animate-bounce"></i> Promo Spesial Ubay motor sanjaya
+        : Bunga 0% & Bonus Helm Full Face Exclusif Setiap Pembelian Minggu Ini!
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-40 bg-brand-dark/90 backdrop-blur-md border-b border-brand-border/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 bg-gradient-to-br from-brand-red to-black rounded-xl flex items-center justify-center text-white font-racing font-extrabold text-2xl tracking-tighter transform group-hover:rotate-6 transition-all border border-brand-red/50 shadow-lg shadow-brand-red/20">
+                        UR
+                    </div>
+                    <div>
+                        <span class="font-racing text-2xl sm:text-3xl font-extrabold tracking-wider uppercase bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-brand-red">
+                            UBAY <span class="text-brand-red">motor sanjaya</span>
+                        </span>
+                        <p class="text-[10px] text-slate-400 tracking-widest uppercase font-semibold -mt-1">Performance & Style</p>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide">
+                    <a href="#katalog" class="hover:text-brand-red transition-colors flex items-center gap-1.5"><i class="fa-solid fa-motorcycle text-brand-red text-xs"></i> Katalog Motor</a>
+                    <a href="#kalkulator" class="hover:text-brand-red transition-colors flex items-center gap-1.5"><i class="fa-solid fa-calculator text-brand-red text-xs"></i> Simulasi Kredit</a>
+                    <a href="#layanan" class="hover:text-brand-red transition-colors flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-brand-red text-xs"></i> Keunggulan</a>
+                    <a href="#kontak" class="hover:text-brand-red transition-colors flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-brand-red text-xs"></i> Dealer & Kontak</a>
+                </div>
+
+                <!-- CTA Button & Mobile Toggle -->
+                <div class="flex items-center space-x-4">
+                    <a href="#katalog" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-brand-red to-brand-darkred hover:from-red-600 hover:to-brand-red text-white font-racing font-bold tracking-wider px-5 py-2.5 rounded-lg shadow-lg shadow-brand-red/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 border border-red-500/30">
+                        <i class="fa-solid fa-gauge-high"></i> PILIH MOTOR
+                    </a>
+                    
+                    <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg bg-brand-card text-slate-300 hover:text-white border border-brand-border focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Nav -->
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-card border-b border-brand-border px-4 pt-3 pb-6 space-y-3">
+            <a href="#katalog" class="mobile-nav-link block py-2.5 px-3 rounded-lg hover:bg-brand-border/50 font-semibold"><i class="fa-solid fa-motorcycle text-brand-red w-6"></i> Katalog Motor</a>
+            <a href="#kalkulator" class="mobile-nav-link block py-2.5 px-3 rounded-lg hover:bg-brand-border/50 font-semibold"><i class="fa-solid fa-calculator text-brand-red w-6"></i> Simulasi Kredit</a>
+            <a href="#layanan" class="mobile-nav-link block py-2.5 px-3 rounded-lg hover:bg-brand-border/50 font-semibold"><i class="fa-solid fa-shield-halved text-brand-red w-6"></i> Keunggulan Ubay motor sanjaya</a>
+            <a href="#kontak" class="mobile-nav-link block py-2.5 px-3 rounded-lg hover:bg-brand-border/50 font-semibold"><i class="fa-solid fa-location-dot text-brand-red w-6"></i> Dealer & Kontak</a>
+            <a href="#katalog" class="mobile-nav-link block w-full text-center bg-brand-red text-white font-racing font-bold py-3 rounded-lg mt-2">CARI MOTOR IMPIAN</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative overflow-hidden bg-gradient-to-b from-brand-dark via-slate-900 to-brand-dark py-16 lg:py-24 border-b border-brand-border/40">
+        <!-- Background Grid Effect -->
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#FF0035_1px,transparent_1px)] [background-size:16px_16px] pointer-events-none"></div>
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-brand-red/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/2 -right-40 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-red/10 border border-brand-red/30 text-brand-red font-semibold text-xs tracking-wider uppercase">
+                        <i class="fa-solid fa-bolt"></i> Official Authorized Dealer Ubay motor sanjaya
+                    </div>
+                    <h1 class="font-racing text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-tight text-white leading-tight">
+                        Rasakan Sensasi <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-red via-red-500 to-cyan-400">Kecepatan Maksimal</span>
+                    </h1>
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Selamat datang di <strong class="text-white">Ubay motor sanjaya</strong>. Pusat penjualan sepeda motor Sport, Drag Spec, Adventure Trail, EV Modern, dan Matic Premium terpercaya dengan garansi mesin resmi & pelayanan kelas balap.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#katalog" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-red hover:bg-brand-darkred text-white font-racing text-lg font-bold tracking-wider shadow-lg shadow-brand-red/30 transition-all flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                            <i class="fa-solid fa-motorcycle"></i> JELAJAHI KATALOG
+                        </a>
+                        <a href="#kalkulator" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-card hover:bg-brand-border text-slate-200 font-racing text-lg font-bold tracking-wider border border-brand-border transition-all flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-calculator text-brand-red"></i> HITUNG ANGSURAN
+                        </a>
+                    </div>
+
+                    <!-- Trust Stats -->
+                    <div class="grid grid-cols-3 gap-4 pt-8 border-t border-brand-border/60 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <p class="font-racing text-2xl sm:text-3xl font-bold text-brand-red">100%</p>
+                            <p class="text-xs text-slate-400 uppercase tracking-wider">Garansi Resmi</p>
+                        </div>
+                        <div>
+                            <p class="font-racing text-2xl sm:text-3xl font-bold text-white">5.000+</p>
+                            <p class="text-xs text-slate-400 uppercase tracking-wider">Unit Terjual</p>
+                        </div>
+                        <div>
+                            <p class="font-racing text-2xl sm:text-3xl font-bold text-cyan-400">24/7</p>
+                            <p class="text-xs text-slate-400 uppercase tracking-wider">Layanan Support</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image Display -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-brand-red/30 to-cyan-500/20 rounded-3xl blur-2xl transform rotate-3 scale-95"></div>
+                        <div class="relative bg-brand-card border border-brand-border/80 rounded-3xl p-4 sm:p-6 overflow-hidden shadow-2xl">
+                            <div class="absolute top-3 right-3 bg-brand-red text-white text-[10px] font-racing font-bold tracking-widest px-3 py-1 rounded-full uppercase">
+                                FLAGSHIP MODEL
+                            </div>
+                            <img id="heroImage" src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=1000&q=80" alt="Ubay motor sanjaya Flagship Superbike" class="w-full h-64 sm:h-80 object-cover rounded-2xl transform hover:scale-105 transition-transform duration-500">
+                            <div class="mt-4 flex justify-between items-end">
+                                <div>
+                                    <span class="text-xs text-brand-red font-bold uppercase tracking-wider">Ubay motor sanjaya Spec</span>
+                                    <h3 class="font-racing text-2xl font-bold text-white">ZX-1000 RR Spec-R</h3>
+                                    <p class="text-xs text-slate-400">998cc • 203 HP • Quickshifter</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-xs text-slate-400">Harga OTR</p>
+                                    <p class="font-racing text-xl font-bold text-brand-red">Rp 299.000.000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Catalog Section -->
+    <section id="katalog" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Title -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <h2 class="text-xs font-racing font-bold text-brand-red tracking-widest uppercase mb-2">PILIHAN TEPAT MOTOR IMPIAN</h2>
+            <h3 class="font-racing text-3xl sm:text-5xl font-extrabold text-white uppercase tracking-tight">
+                KATALOG MOTOR <span class="text-brand-red">UBAY motor sanjaya</span>
+            </h3>
+            <p class="text-slate-400 text-sm sm:text-base mt-2">Filter berdasarkan kategori atau gunakan kolom pencarian untuk menemukan unit berperforma tinggi yang sesuai kebutuhan Anda.</p>
+        </div>
+
+        <!-- Search Bar and Category Filters -->
+        <div class="space-y-6 mb-10">
+            <!-- Search Bar -->
+            <div class="max-w-xl mx-auto relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                <input type="text" id="searchInput" placeholder="Cari tipe motor, cc, atau model (contoh: ZX-1000, Drag, EV)..." class="w-full pl-12 pr-4 py-3.5 bg-brand-card border border-brand-border rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red transition-all">
+                <button id="clearSearchBtn" class="hidden absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Category Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3" id="categoryFilterContainer">
+                <button data-category="all" class="filter-btn active px-5 py-2.5 rounded-xl font-racing font-bold text-sm tracking-wider uppercase border border-brand-red bg-brand-red text-white shadow-md transition-all">
+                    <i class="fa-solid fa-border-all mr-1.5"></i> Semua
+                </button>
+                <button data-category="Sport" class="filter-btn px-5 py-2.5 rounded-xl font-racing font-bold text-sm tracking-wider uppercase border border-brand-border bg-brand-card text-slate-300 hover:border-brand-red hover:text-white transition-all">
+                    <i class="fa-solid fa-motorcycle mr-1.5 text-brand-red"></i> Sport
+                </button>
+                <button data-category="Racing" class="filter-btn px-5 py-2.5 rounded-xl font-racing font-bold text-sm tracking-wider uppercase border border-brand-border bg-brand-card text-slate-300 hover:border-brand-red hover:text-white transition-all">
+                    <i class="fa-solid fa-flag-checkered mr-1.5 text-brand-red"></i> Drag / Racing
+                </button>
+                <button data-category="Matic" class="filter-btn px-5 py-2.5 rounded-xl font-racing font-bold text-sm tracking-wider uppercase border border-brand-border bg-brand-card text-slate-300 hover:border-brand-red hover:text-white transition-all">
+                    <i class="fa-solid fa-person-biking mr-1.5 text-brand-red"></i> Matic Premium
+                </button>
+                <button data-category="Trail" class="filter-btn px-5 py-2.5 rounded-xl font-racing font-bold text-sm tracking-wider uppercase border border-brand-border bg-brand-card text-slate-300 hover:border-brand-red hover:text-white transition-all">
+                    <i class="fa-solid fa-mountain-sun mr-1.5 text-brand-red"></i> Trail / Offroad
+                </button>
+                <button data-category="EV" class="filter-btn px-5 py-2.5 rounded-xl font-racing font-bold text-sm tracking-wider uppercase border border-brand-border bg-brand-card text-slate-300 hover:border-brand-red hover:text-white transition-all">
+                    <i class="fa-solid fa-bolt mr-1.5 text-cyan-400"></i> EV (Listrik)
+                </button>
+            </div>
+        </div>
+
+        <!-- Motor Grid Display -->
+        <div id="motorGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Dynamic JS injection here -->
+        </div>
+
+        <!-- Empty Search Result State -->
+        <div id="noResults" class="hidden text-center py-16 bg-brand-card/50 rounded-2xl border border-brand-border">
+            <i class="fa-solid fa-motorcycle text-5xl text-slate-600 mb-4"></i>
+            <h4 class="font-racing text-2xl text-white font-bold">Motor Tidak Ditemukan</h4>
+            <p class="text-slate-400 text-sm mt-1">Coba kata kunci lain atau pilih filter kategori yang berbeda.</p>
+            <button id="resetFilterBtn" class="mt-4 px-5 py-2.5 bg-brand-red text-white rounded-lg font-racing font-bold uppercase text-sm">
+                Reset Pencarian
+            </button>
+        </div>
+    </section>
+
+    <!-- Loan / Credit Calculator Section -->
+    <section id="kalkulator" class="py-16 bg-slate-900/60 border-y border-brand-border/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Info Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold uppercase tracking-wider">
+                        <i class="fa-solid fa-percent"></i> Transparan & Mudah
+                    </div>
+                    <h2 class="font-racing text-3xl sm:text-5xl font-extrabold text-white uppercase leading-tight">
+                        Simulasi Kredit <br><span class="text-brand-red">Ubay motor sanjaya</span>
+                    </h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Hitung estimasi angsuran bulanan sepeda motor impian Anda secara akurat dengan bunga kompetitif dan opsi DP fleksibel mulai dari 10%.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4 p-3 rounded-xl bg-brand-card/70 border border-brand-border/50">
+                            <div class="w-10 h-10 rounded-lg bg-brand-red/20 flex items-center justify-center text-brand-red shrink-0 font-bold">1</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Persetujuan Cepat (Fast Approval)</h4>
+                                <p class="text-xs text-slate-400">Proses survei kilat 1x24 jam dengan kelengkapan berkas minimal.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-3 rounded-xl bg-brand-card/70 border border-brand-border/50">
+                            <div class="w-10 h-10 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-400 shrink-0 font-bold">2</div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Mitra Finance Terpercaya</h4>
+                                <p class="text-xs text-slate-400">Bekerjasama dengan BCA Multifinance, Adira, FIF, & OTO Finance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calculator Form Card -->
+                <div class="lg:col-span-7 bg-brand-card p-6 sm:p-8 rounded-3xl border border-brand-border shadow-2xl relative">
+                    <h3 class="font-racing text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-calculator text-brand-red"></i> KALKULATOR ANGSURAN
+                    </h3>
+
+                    <form id="calcForm" class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Pilih Unit Motor</label>
+                            <select id="calcMotorSelect" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-red">
+                                <!-- Populated dynamically -->
+                            </select>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <div class="flex justify-between text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">
+                                    <span>Uang Muka (DP)</span>
+                                    <span id="calcDpPercentText" class="text-brand-red">20%</span>
+                                </div>
+                                <input type="range" id="calcDpRange" min="10" max="50" step="5" value="20" class="w-full accent-brand-red bg-brand-dark h-2 rounded-lg cursor-pointer">
+                                <p class="text-right text-xs text-slate-400 mt-1 font-mono" id="calcDpAmountText">Rp 0</p>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Tenor (Tenor Pembayaran)</label>
+                                <select id="calcTenorSelect" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-red font-bold">
+                                    <option value="12">12 Bulan (1 Tahun)</option>
+                                    <option value="24" selected>24 Bulan (2 Tahun)</option>
+                                    <option value="36">36 Bulan (3 Tahun)</option>
+                                    <option value="48">48 Bulan (4 Tahun)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Result Display Box -->
+                        <div class="bg-gradient-to-r from-slate-900 to-brand-dark p-6 rounded-2xl border border-brand-red/40 flex flex-col sm:flex-row justify-between items-center gap-4">
+                            <div>
+                                <span class="text-xs uppercase text-slate-400 font-semibold tracking-wider">Estimasi Angsuran / Bulan</span>
+                                <div id="calcResultMonthly" class="font-racing text-3xl sm:text-4xl font-extrabold text-brand-red">Rp 0</div>
+                                <span class="text-[11px] text-slate-500">*Bunga estimasi 0.8% / bulan</span>
+                            </div>
+                            <button type="button" id="calcApplyBtn" class="w-full sm:w-auto px-6 py-3 bg-brand-red hover:bg-brand-darkred text-white font-racing font-bold tracking-wider rounded-xl transition-all shadow-lg shadow-brand-red/20 text-center">
+                                AJUKAN KREDIT
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service & Advantages Section -->
+    <section id="layanan" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <h2 class="text-xs font-racing font-bold text-brand-red tracking-widest uppercase mb-2">STANDAR BALAP & LAYANAN TERBAIK</h2>
+            <h3 class="font-racing text-3xl sm:text-5xl font-extrabold text-white uppercase tracking-tight">
+                KEUNGGULAN <span class="text-brand-red">UBAY motor sanjaya</span>
+            </h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-brand-card p-8 rounded-2xl border border-brand-border hover:border-brand-red/50 transition-all group">
+                <div class="w-14 h-14 bg-brand-red/10 rounded-2xl flex items-center justify-center text-brand-red text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-wrench"></i>
+                </div>
+                <h4 class="font-racing text-2xl font-bold text-white mb-2">Dyno Test & Dyno Tuning</h4>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Setiap unit tipe Racing & Sport mendapatkan opsi gratis dyno test untuk memastikan performa horsepower dan torsi optimal sebelum dikirim.
+                </p>
+            </div>
+
+            <div class="bg-brand-card p-8 rounded-2xl border border-brand-border hover:border-brand-red/50 transition-all group">
+                <div class="w-14 h-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <h4 class="font-racing text-2xl font-bold text-white mb-2">Pengiriman Khusus Safety</h4>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Pengiriman unit motor menggunakan Towing Truck khusus tertutup, menjamin fisik kendaraan mulus tanpa tergores sampai ke garasi Anda.
+                </p>
+            </div>
+
+            <div class="bg-brand-card p-8 rounded-2xl border border-brand-border hover:border-brand-red/50 transition-all group">
+                <div class="w-14 h-14 bg-amber-500/10 rounded-2xl flex items-center justify-center text-amber-400 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-certificate"></i>
+                </div>
+                <h4 class="font-racing text-2xl font-bold text-white mb-2">Garansi Mesin 3 Tahun</h4>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Jaminan garansi mesin resmi sparepart original serta bebas biaya jasa servis berkala di bengkel resmi mitra Ubay motor sanjaya.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="kontak" class="bg-black border-t border-brand-border/80 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- Brand Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-brand-red rounded-xl flex items-center justify-center text-white font-racing font-extrabold text-xl">
+                            UR
+                        </div>
+                        <span class="font-racing text-2xl font-extrabold tracking-wider text-white uppercase">
+                            UBAY <span class="text-brand-red">RACING</span>
+                        </span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed">
+                        Ubay motor sanjaya pusat dealer dan motorsport hub yang menghadirkan lini sepeda motor premium berkinerja tinggi, bebek racing, matic modern, hingga motor listrik masa depan.
+                    </p>
+                    <div class="flex space-x-3 pt-2">
+                        <a href="#" class="w-9 h-9 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center text-slate-300 hover:text-brand-red hover:border-brand-red transition-all"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center text-slate-300 hover:text-brand-red hover:border-brand-red transition-all"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center text-slate-300 hover:text-brand-red hover:border-brand-red transition-all"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-brand-card border border-brand-border flex items-center justify-center text-slate-300 hover:text-brand-red hover:border-brand-red transition-all"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Jam Operasional -->
+                <div>
+                    <h4 class="font-racing text-lg font-bold text-white uppercase mb-4 tracking-wider border-b border-brand-red/40 inline-block pb-1">Jam Operasional</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li class="flex justify-between"><span>Senin - Jumat:</span> <span class="text-white font-semibold">08.00 - 20.00 WIB</span></li>
+                        <li class="flex justify-between"><span>Sabtu:</span> <span class="text-white font-semibold">08.00 - 21.00 WIB</span></li>
+                        <li class="flex justify-between"><span>Minggu / Libur:</span> <span class="text-brand-red font-semibold">09.00 - 17.00 WIB</span></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-racing text-lg font-bold text-white uppercase mb-4 tracking-wider border-b border-brand-red/40 inline-block pb-1">Navigasi Cepat</h4>
+                    <ul class="space-y-2 text-xs text-slate-400">
+                        <li><a href="#katalog" class="hover:text-brand-red transition-colors"><i class="fa-solid fa-chevron-right text-[10px] mr-1 text-brand-red"></i> Katalog Motor Sport</a></li>
+                        <li><a href="#katalog" class="hover:text-brand-red transition-colors"><i class="fa-solid fa-chevron-right text-[10px] mr-1 text-brand-red"></i> Drag & Race Spec</a></li>
+                        <li><a href="#kalkulator" class="hover:text-brand-red transition-colors"><i class="fa-solid fa-chevron-right text-[10px] mr-1 text-brand-red"></i> Simulasi Kredit DP Murah</a></li>
+                        <li><a href="#layanan" class="hover:text-brand-red transition-colors"><i class="fa-solid fa-chevron-right text-[10px] mr-1 text-brand-red"></i> Dyno Test Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Showroom -->
+                <div>
+                    <h4 class="font-racing text-lg font-bold text-white uppercase mb-4 tracking-wider border-b border-brand-red/40 inline-block pb-1">Showroom Pusat</h4>
+                    <div class="space-y-3 text-xs text-slate-400">
+                        <p class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-location-dot text-brand-red text-sm mt-0.5"></i>
+                            <span>Jl. Raya Otomotif No. 88, Circuit Zone, Jakarta Selatan</span>
+                        </p>
+                        <p class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-phone text-brand-red text-sm"></i>
+                            <span>(021) 555-UBAY / +62 812-3456-7890</span>
+                        </p>
+                        <p class="flex items-center gap-2.5">
+                            <i class="fa-solid fa-envelope text-brand-red text-sm"></i>
+                            <span>info@ubayracing.com</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-brand-border/60 pt-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>&copy; 2026 <strong class="text-slate-300">Ubay motor sanjaya Motor Dealer</strong>. All Rights Reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+                    <a href="#" class="hover:text-slate-300">Terms of Service</a>
+                    <a href="#" class="hover:text-slate-300">Garansi & Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Detail Spesifikasi Motor -->
+    <div id="detailModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-brand-card border border-brand-border rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative text-white shadow-2xl">
+            <button id="closeDetailModal" class="absolute top-4 right-4 w-10 h-10 bg-brand-dark rounded-full border border-brand-border flex items-center justify-center text-slate-400 hover:text-white hover:border-brand-red transition-all">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div id="modalDetailContent">
+                <!-- Dynamic Content via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Booking Test Drive / Pembelian -->
+    <div id="bookingModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-brand-card border border-brand-border rounded-3xl max-w-lg w-full p-6 relative text-white shadow-2xl">
+            <button id="closeBookingModal" class="absolute top-4 right-4 w-10 h-10 bg-brand-dark rounded-full border border-brand-border flex items-center justify-center text-slate-400 hover:text-white hover:border-brand-red transition-all">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+
+            <div class="mb-6">
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-brand-red/20 text-brand-red font-racing text-xs font-bold uppercase mb-2">
+                    <i class="fa-solid fa-calendar-check"></i> Form Ubay motor sanjaya
+                </div>
+                <h3 id="bookingTitle" class="font-racing text-2xl font-bold uppercase">Booking Test Drive / Inden</h3>
+                <p class="text-xs text-slate-400">Isi data singkat berikut, tim konsultasi Ubay motor sanjaya akan segera menghubungi Anda.</p>
+            </div>
+
+            <form id="bookingForm" class="space-y-4">
+                <input type="hidden" id="bookingMotorId">
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-300 mb-1">Nama Lengkap</label>
+                    <input type="text" required placeholder="Contoh: Budi Santoso" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-red">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-300 mb-1">Nomor WhatsApp</label>
+                    <input type="tel" required placeholder="081234567890" class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-brand-red">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-300 mb-1">Opsi Layanan</label>
+                        <select id="bookingType" class="w-full bg-brand-dark border border-brand-border rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-brand-red">
+                            <option value="testdrive">Test Drive Showroom</option>
+                            <option value="pembelian">Pengajuan Pembelian / Inden</option>
+                            <option value="konsultasi">Konsultasi Kredit</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-300 mb-1">Jadwal Rencana</label>
+                        <input type="date" required class="w-full bg-brand-dark border border-brand-border rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-brand-red">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold uppercase text-slate-300 mb-1">Catatan Tambahan (Opsional)</label>
+                    <textarea rows="2" placeholder="Tuliskan pertanyaan atau preferensi warna..." class="w-full bg-brand-dark border border-brand-border rounded-xl px-4 py-2 text-xs text-white focus:outline-none focus:border-brand-red"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 bg-brand-red hover:bg-brand-darkred text-white font-racing font-bold tracking-wider uppercase rounded-xl transition-all shadow-lg shadow-brand-red/25 mt-2">
+                    KIRIM PERMOHONAN VIA WHATSAPP
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Data Katalog Motor Ubay motor sanjaya
+        const motorcycles = [
+            {
+                id: 'ubay-zx1000',
+                name: 'Ubay ZX-1000 RR Spec-R',
+                category: 'Sport',
+                price: 299000000,
+                image: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=800&q=80',
+                badge: 'Flagship',
+                cc: '998 cc',
+                power: '203 HP @ 13.200 RPM',
+                transmission: '6-Speed Manual Quickshifter',
+                description: 'Superbike flagship Ubay motor sanjaya dengan performa sirkuit murni, kontrol traksi Bosch 6-axis, dan body carbon-aerodynamic winglets.'
+            },
+            {
+                id: 'ubay-drag-500',
+                name: 'Ubay Drag-Pro 500 Special Edition',
+                category: 'Racing',
+                price: 115000000,
+                image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80',
+                badge: 'Race Spec',
+                cc: '499 cc Single Tuned',
+                power: '78 HP @ 11.500 RPM',
+                transmission: '5-Speed Competition Clutch',
+                description: 'Kustom spesialisasi balap lurus (drag race). Rangka ultralight titanium, ECU programmable racing, dan sistem pembuangan titanium full-system.'
+            },
+            {
+                id: 'ubay-vmax-250',
+                name: 'Ubay V-Max 250 Sport Matic',
+                category: 'Matic',
+                price: 68500000,
+                image: 'https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&w=800&q=80',
+                badge: 'Best Seller',
+                cc: '250 cc VVA Engine',
+                power: '22.8 HP @ 7.750 RPM',
+                transmission: 'Automatic CVT High-Efficiency',
+                description: 'Skuter matic bongsor bertenaga tinggi dengan suspensi ganda tabung gas, Traction Control System (TCS), dan layar speedometer full TFT.'
+            },
+            {
+                id: 'ubay-apex-250',
+                name: 'Ubay Apex RR 250 Twin',
+                category: 'Sport',
+                price: 79500000,
+                image: 'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=800&q=80',
+                badge: 'Popular',
+                cc: '249 cc 2-Cylinder DOHC',
+                power: '38.7 HP @ 12.500 RPM',
+                transmission: '6-Speed Assist & Slipper Clutch',
+                description: 'Motor sport 250cc paling digemari. Suara mesin 2 silinder melengking khas balap, posisi berkendara ergonomis & suspensi Inverted Front Fork.'
+            },
+            {
+                id: 'ubay-ev-hyper',
+                name: 'Ubay Hyper-E Electric Superbike',
+                category: 'EV',
+                price: 185000000,
+                image: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80',
+                badge: 'Eco Speed',
+                cc: '120 kW Electric Motor',
+                power: '160 HP Equivalent',
+                transmission: 'Direct Drive Automatic',
+                description: 'Motor listrik berperforma superbike. Akselerasi 0-100 km/jam hanya 2.8 detik, jarak tempuh hingga 220 km per sekali pengisian daya cepat.'
+            },
+            {
+                id: 'ubay-dirt-450',
+                name: 'Ubay Dirt-Racer 450 Enduro',
+                category: 'Trail',
+                price: 105000000,
+                image: 'https://th.bing.com/th/id/OIP.8k-yAP5kDC6aXCyNHOjhbwHaE7?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3',
+                badge: 'Offroad King',
+                cc: '449 cc Liquid-Cooled',
+                power: '53 HP @ 9.000 RPM',
+                transmission: '5-Speed Heavy Duty',
+                description: 'Raja sirkuit tanah dan jalur offroad ekstrem. Dilengkapi suspensi Showa fully adjustable dengan travel panjang dan ban cangkul profesional.'
+            }
+        ];
+
+        // Format Currency Helper
+        function formatRupiah(amount) {
+            return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(amount);
+        }
+
+        // State Management
+        let currentCategory = 'all';
+        let searchQuery = '';
+
+        // DOM Elements
+        const motorGrid = document.getElementById('motorGrid');
+        const noResults = document.getElementById('noResults');
+        const searchInput = document.getElementById('searchInput');
+        const clearSearchBtn = document.getElementById('clearSearchBtn');
+        const categoryFilterContainer = document.getElementById('categoryFilterContainer');
+        const calcMotorSelect = document.getElementById('calcMotorSelect');
+        const calcDpRange = document.getElementById('calcDpRange');
+        const calcDpPercentText = document.getElementById('calcDpPercentText');
+        const calcDpAmountText = document.getElementById('calcDpAmountText');
+        const calcTenorSelect = document.getElementById('calcTenorSelect');
+        const calcResultMonthly = document.getElementById('calcResultMonthly');
+
+        function renderMotorGrid() {
+            motorGrid.innerHTML = '';
+
+            const filtered = motorcycles.filter(motor => {
+                const matchesCategory = (currentCategory === 'all') || (motor.category === currentCategory);
+                const matchesSearch = motor.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                      motor.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                      motor.cc.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+                filtered.forEach(motor => {
+                    const card = document.createElement('div');
+                    card.className = "bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover:border-brand-red/60 transition-all duration-300 flex flex-col justify-between group glow-red-hover";
+                    
+                    card.innerHTML = `
+                        <div>
+                            <div class="relative overflow-hidden h-52 bg-slate-900">
+                                <img src="${motor.image}" alt="${motor.name}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                <span class="absolute top-3 right-3 bg-brand-red text-white text-[10px] font-racing font-bold tracking-widest px-2.5 py-1 rounded-full uppercase">
+                                    ${motor.badge}
+                                </span>
+                                <span class="absolute bottom-3 left-3 bg-black/70 backdrop-blur-md text-cyan-400 border border-cyan-500/30 text-[11px] font-bold px-2.5 py-0.5 rounded-md">
+                                    <i class="fa-solid fa-tag text-[9px] mr-1"></i>${motor.category}
+                                </span>
+                            </div>
+
+                            <div class="p-5">
+                                <h3 class="font-racing text-2xl font-bold text-white group-hover:text-brand-red transition-colors">${motor.name}</h3>
+                                <p class="text-xs text-slate-400 mt-1 line-clamp-2">${motor.description}</p>
+
+                                <div class="grid grid-cols-3 gap-2 mt-4 py-3 px-2 bg-brand-dark rounded-xl border border-brand-border/40 text-center">
+                                    <div>
+                                        <p class="text-[10px] text-slate-500 uppercase font-bold">Kapasitas</p>
+                                        <p class="text-xs font-bold text-slate-200 mt-0.5">${motor.cc}</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-[10px] text-slate-500 uppercase font-bold">Daya</p>
+                                        <p class="text-xs font-bold text-slate-200 mt-0.5 truncate">${motor.power.split(' ')[0]} HP</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-[10px] text-slate-500 uppercase font-bold">Transmisi</p>
+                                        <p class="text-xs font-bold text-slate-200 mt-0.5 truncate">${motor.transmission.split(' ')[0]}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-5 pt-0 mt-2 border-t border-brand-border/40 flex items-center justify-between gap-2">
+                            <div>
+                                <p class="text-[10px] text-slate-400 font-semibold uppercase">Harga OTR</p>
+                                <p class="font-racing text-xl font-bold text-brand-red">${formatRupiah(motor.price)}</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <button onclick="openDetailModal('${motor.id}')" class="p-2.5 bg-brand-dark hover:bg-brand-border rounded-xl text-slate-300 hover:text-white border border-brand-border transition-all" title="Lihat Spesifikasi">
+                                    <i class="fa-solid fa-circle-info"></i>
+                                </button>
+                                <button onclick="openBookingModal('${motor.id}')" class="px-3.5 py-2.5 bg-brand-red hover:bg-brand-darkred text-white font-racing font-bold text-xs uppercase tracking-wider rounded-xl transition-all shadow-md shadow-brand-red/20">
+                                    Pesan
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    motorGrid.appendChild(card);
+                });
+            }
+        }
+
+        categoryFilterContainer.addEventListener('click', (e) => {
+            const btn = e.target.closest('.filter-btn');
+            if (!btn) return;
+
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('bg-brand-red', 'text-white', 'border-brand-red');
+                b.classList.add('bg-brand-card', 'text-slate-300', 'border-brand-border');
+            });
+
+            btn.classList.remove('bg-brand-card', 'text-slate-300', 'border-brand-border');
+            btn.classList.add('bg-brand-red', 'text-white', 'border-brand-red');
+
+            currentCategory = btn.getAttribute('data-category');
+            renderMotorGrid();
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.trim();
+            if (searchQuery.length > 0) {
+                clearSearchBtn.classList.remove('hidden');
+            } else {
+                clearSearchBtn.classList.add('hidden');
+            }
+            renderMotorGrid();
+        });
+
+        clearSearchBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            searchQuery = '';
+            clearSearchBtn.classList.add('hidden');
+            renderMotorGrid();
+        });
+
+        document.getElementById('resetFilterBtn').addEventListener('click', () => {
+            searchInput.value = '';
+            searchQuery = '';
+            currentCategory = 'all';
+            clearSearchBtn.classList.add('hidden');
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                if (b.getAttribute('data-category') === 'all') {
+                    b.classList.add('bg-brand-red', 'text-white', 'border-brand-red');
+                } else {
+                    b.classList.remove('bg-brand-red', 'text-white', 'border-brand-red');
+                    b.classList.add('bg-brand-card', 'text-slate-300', 'border-brand-border');
+                }
+            });
+            renderMotorGrid();
+        });
+
+        function initCalculatorOptions() {
+            calcMotorSelect.innerHTML = '';
+            motorcycles.forEach(motor => {
+                const opt = document.createElement('option');
+                opt.value = motor.id;
+                opt.textContent = `${motor.name} - ${formatRupiah(motor.price)}`;
+                calcMotorSelect.appendChild(opt);
+            });
+            updateCalculator();
+        }
+
+        function updateCalculator() {
+            const selectedMotorId = calcMotorSelect.value;
+            const motor = motorcycles.find(m => m.id === selectedMotorId) || motorcycles[0];
+            const dpPercent = parseInt(calcDpRange.value);
+            const tenorMonths = parseInt(calcTenorSelect.value);
+
+            const dpAmount = motor.price * (dpPercent / 100);
+            const loanPrincipal = motor.price - dpAmount;
+
+            // Simple Interest Formula for Simulation (0.8% per month)
+            const monthlyInterestRate = 0.008;
+            const totalInterest = loanPrincipal * monthlyInterestRate * tenorMonths;
+            const totalLoan = loanPrincipal + totalInterest;
+            const monthlyInstallment = totalLoan / tenorMonths;
+
+            calcDpPercentText.textContent = `${dpPercent}%`;
+            calcDpAmountText.textContent = formatRupiah(dpAmount);
+            calcResultMonthly.textContent = formatRupiah(monthlyInstallment);
+        }
+
+        calcMotorSelect.addEventListener('change', updateCalculator);
+        calcDpRange.addEventListener('input', updateCalculator);
+        calcTenorSelect.addEventListener('change', updateCalculator);
+
+        document.getElementById('calcApplyBtn').addEventListener('click', () => {
+            const selectedMotorId = calcMotorSelect.value;
+            openBookingModal(selectedMotorId, 'konsultasi');
+        });
+
+        // Modals Functions
+        function openDetailModal(id) {
+            const motor = motorcycles.find(m => m.id === id);
+            if (!motor) return;
+
+            const modalContent = document.getElementById('modalDetailContent');
+            modalContent.innerHTML = `
+                <div class="space-y-6">
+                    <div class="relative h-64 sm:h-72 rounded-2xl overflow-hidden bg-slate-900 border border-brand-border">
+                        <img src="${motor.image}" class="w-full h-full object-cover">
+                        <div class="absolute bottom-4 left-4 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-brand-red/40">
+                            <p class="text-xs text-brand-red font-bold uppercase tracking-wider">${motor.category} SPECIFICATION</p>
+                            <p class="font-racing text-2xl font-bold">${motor.name}</p>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-300 text-sm leading-relaxed">${motor.description}</p>
+
+                    <div class="border-t border-brand-border pt-4">
+                        <h4 class="font-racing text-xl font-bold text-white uppercase mb-3 text-brand-red">Spesifikasi Utama</h4>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                            <div class="bg-brand-dark p-3 rounded-xl border border-brand-border/60">
+                                <span class="text-slate-400 block font-semibold">Kapasitas Mesin</span>
+                                <span class="text-white font-bold text-sm mt-0.5 block">${motor.cc}</span>
+                            </div>
+                            <div class="bg-brand-dark p-3 rounded-xl border border-brand-border/60">
+                                <span class="text-slate-400 block font-semibold">Tenaga Maksimum</span>
+                                <span class="text-white font-bold text-sm mt-0.5 block">${motor.power}</span>
+                            </div>
+                            <div class="bg-brand-dark p-3 rounded-xl border border-brand-border/60">
+                                <span class="text-slate-400 block font-semibold">Sistem Transmisi</span>
+                                <span class="text-white font-bold text-sm mt-0.5 block">${motor.transmission}</span>
+                            </div>
+                            <div class="bg-brand-dark p-3 rounded-xl border border-brand-border/60">
+                                <span class="text-slate-400 block font-semibold">Harga On The Road (OTR)</span>
+                                <span class="text-brand-red font-bold text-sm mt-0.5 block">${formatRupiah(motor.price)}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end gap-3 pt-2">
+                        <button onclick="document.getElementById('detailModal').classList.add('hidden')" class="px-5 py-2.5 rounded-xl bg-brand-dark border border-brand-border text-slate-300 font-bold text-xs uppercase">Tutup</button>
+                        <button onclick="document.getElementById('detailModal').classList.add('hidden'); openBookingModal('${motor.id}')" class="px-6 py-2.5 rounded-xl bg-brand-red text-white font-racing font-bold text-xs uppercase tracking-wider shadow-lg shadow-brand-red/30">Booking Sekarang</button>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('detailModal').classList.remove('hidden');
+        }
+
+        function openBookingModal(id, defaultType = 'testdrive') {
+            const motor = motorcycles.find(m => m.id === id) || motorcycles[0];
+            document.getElementById('bookingMotorId').value = motor.id;
+            document.getElementById('bookingTitle').textContent = `Pemesanan / Test Drive: ${motor.name}`;
+            document.getElementById('bookingType').value = defaultType;
+            document.getElementById('bookingModal').classList.remove('hidden');
+        }
+
+        document.getElementById('closeDetailModal').addEventListener('click', () => {
+            document.getElementById('detailModal').classList.add('hidden');
+        });
+
+        document.getElementById('closeBookingModal').addEventListener('click', () => {
+            document.getElementById('bookingModal').classList.add('hidden');
+        });
+
+        // Booking Form Submit Handler (Redirects to WhatsApp)
+        document.getElementById('bookingForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const motorId = document.getElementById('bookingMotorId').value;
+            const motor = motorcycles.find(m => m.id === motorId);
+            const type = document.getElementById('bookingType').value;
+            
+            const message = `Halo Ubay motor sanjaya, saya ingin mengajukan ${type.toUpperCase()} untuk unit motor ${motor ? motor.name : ''}. Mohon informasi ketersediaan unit dan pendaftaran!`;
+            const waUrl = `https://wa.me/6285755040128?text=${encodeURIComponent(message)}`;
+            
+            window.open(waUrl, '_blank');
+            document.getElementById('bookingModal').classList.add('hidden');
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = 'fa-solid fa-bars text-xl';
+            } else {
+                menuIcon.className = 'fa-solid fa-xmark text-xl';
+            }
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.className = 'fa-solid fa-bars text-xl';
+            });
+        });
+
+        // Initial Load Actions
+        window.onload = function() {
+            renderMotorGrid();
+            initCalculatorOptions();
+        };
+    </script>
+</body>
+</html>
